@@ -163,7 +163,16 @@ defmodule Algolia do
       path_encode_fun: &URI.encode/1,
       connect_timeout: 3_000 * (curr_retry + 1),
       recv_timeout: 30_000 * (curr_retry + 1),
-      ssl_options: [{:versions, [:"tlsv1.2"]}]
+      ssl_options: [
+        verify: :verify_peer,
+        cacertfile: :certifi.cacertfile()
+        ciphers: :ssl.cipher_suites(:default, :"tlsv1.2"),
+        ] ++ [versions: :ssl.versions()[:supported]] ++ [
+        # For OTP 21+:
+        customize_hostname_check: [
+          match_fun: :public_key.pkix_verify_hostname_match_fun(:https)
+        ]
+      ]
     ])
     |> case do
       {:ok, code, _headers, response} when code in 200..299 ->

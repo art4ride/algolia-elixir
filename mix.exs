@@ -4,7 +4,7 @@ defmodule Algolia.Mixfile do
   def project do
     [
       app: :algolia,
-      version: "0.8.0",
+      version: "0.8.1",
       description: "Elixir implementation of Algolia Search API",
       elixir: "~> 1.5",
       package: package(),
@@ -28,7 +28,7 @@ defmodule Algolia.Mixfile do
   defp deps do
     [
       {:hackney, "~> 1.17 or ~> 1.18 or ~> 1.19"},
-      {:jason, "~> 1.0 or ~> 1.3 or ~> 1.4"},
+      {:jason, "~> 1.3 or ~> 1.4"},
       # Docs
       {:ex_doc, "~> 0.30", only: :dev},
       {:inch_ex, ">= 0.0.0", only: :dev}
