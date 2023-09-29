@@ -27,10 +27,10 @@ defmodule Algolia.Mixfile do
 
   defp deps do
     [
-      {:hackney, "~> 1.9 or ~> 1.10"},
-      {:jason, "~> 1.0"},
+      {:hackney, "~> 1.17 or ~> 1.18 or ~> 1.19"},
+      {:jason, "~> 1.0 or ~> 1.3 or ~> 1.4"},
       # Docs
-      {:ex_doc, "~> 0.19", only: :dev},
+      {:ex_doc, "~> 0.30", only: :dev},
       {:inch_ex, ">= 0.0.0", only: :dev}
     ]
   end
