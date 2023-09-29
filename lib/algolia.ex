@@ -166,7 +166,6 @@ defmodule Algolia do
       ssl_options: [
         verify: :verify_peer,
         cacertfile: :certifi.cacertfile()
-        ciphers: :ssl.cipher_suites(:default, :"tlsv1.2"),
         ] ++ [versions: :ssl.versions()[:supported]] ++ [
         # For OTP 21+:
         customize_hostname_check: [
